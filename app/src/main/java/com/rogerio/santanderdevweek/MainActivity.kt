@@ -13,4 +13,20 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         setSupportActionBar(findViewById(R.id.toolbar))
     }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        val inflate = menuInflater
+        inflate.inflate(R.menu.notifications, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.item_1 -> {
+                Log.d( "CLICK", " Você possui 10 novas mensagens!!")
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
+    }
 }
